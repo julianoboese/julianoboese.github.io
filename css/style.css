@@ -1,0 +1,38 @@
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
+
+body {
+  font-family: "Ubuntu", sans-serif;
+  background-color: #DFDFDF;
+}
+
+h1, h2 {
+  color: #0E34A0;
+}
+
+p, ul, a {
+  color: #2F3061;
+}
+
+img {
+  border-radius: 100%;
+  width: 200px;
+}
+
+h1 {
+  font-family: "Press Start 2P", sans-serif;
+  font-size: 25px;
+}
+
+a {
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.outras-titulo {
+  font-size: 17px
+}
+
+.outras {
+  font-size: 12px;
+}
