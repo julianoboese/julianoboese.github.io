@@ -4,6 +4,7 @@
 body {
   font-family: "Ubuntu", sans-serif;
   background-color: #DFDFDF;
+  padding: 30px;
 }
 
 h1, h2 {
@@ -16,7 +17,10 @@ p, ul, a {
 
 img {
   border-radius: 100%;
-  width: 200px;
+  height: 200px;
+  float: left;
+  padding: 10px;
+  background-color: #0E34A0
 }
 
 h1 {
@@ -29,6 +33,11 @@ a {
   text-decoration: none;
 }
 
+ul {
+  list-style: none;
+  padding: 0;
+}
+
 .outras-titulo {
   font-size: 17px
 }
@@ -36,3 +45,39 @@ a {
 .outras {
   font-size: 12px;
 }
+
+#indice {
+    margin: 25px 0;
+}
+
+#indice li {
+  text-decoration: underline;
+}
+
+#nome {
+  text-align: center;
+}
+
+#image-container {
+  height: 220px;
+  overflow: auto;
+}
+
+#apresentacao {
+  padding: 24px 5% 24px 300px;
+  min-width: 400px;
+}
+
+p {
+  min-width: 200px;
+  overflow: hidden;
+}
+
+.linguagens li:nth-child(2n+1), .idiomas li:nth-child(2n+1), .outras li:nth-child(2n+1) {
+  color: #DFDFDF;
+  background-color: #2F3061;
+}
+
+/* div {
+  border: 1px solid black;
+} */
