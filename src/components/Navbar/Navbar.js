@@ -17,7 +17,7 @@ import { headerData } from '../../data/headerData';
 import { ThemeContext } from '../../contexts/ThemeContext';
 import { themeData } from '../../data/themeData';
 
-const MaterialUISwitch = styled(Switch)(({ theme }) => ({
+const MaterialUISwitch = styled(Switch)(({ checked }) => ({
   width: 62,
   height: 34,
   padding: 7,
@@ -35,12 +35,17 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
       },
       '& + .MuiSwitch-track': {
         opacity: 1,
-        backgroundColor: theme.palette.mode === 'dark' ? '#8796A5' : '#aab4be',
+        backgroundColor: checked ? '#8796A5' : '#aab4be',
       },
+    },
+    '&:hover .MuiSwitch-thumb': {
+      backgroundColor: checked && window.screen.width > 600
+        ? themeData.lightTheme.primary400 : '#636363',
     },
   },
   '& .MuiSwitch-thumb': {
-    backgroundColor: theme.palette.mode === 'dark' ? '#003892' : '#001e3c',
+    backgroundColor: checked && window.screen.width > 600
+      ? themeData.lightTheme.primary : themeData.darkTheme.secondary,
     width: 32,
     height: 32,
     '&:before': {
@@ -48,8 +53,8 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
       position: 'absolute',
       width: '100%',
       height: '100%',
-      left: 0,
-      top: 0,
+      left: -0.2,
+      top: 0.2,
       backgroundRepeat: 'no-repeat',
       backgroundPosition: 'center',
       backgroundImage: `url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" height="20" width="20" viewBox="0 0 20 20"><path fill="${encodeURIComponent(
@@ -59,7 +64,7 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
   },
   '& .MuiSwitch-track': {
     opacity: 1,
-    backgroundColor: theme.palette.mode === 'dark' ? '#8796A5' : '#aab4be',
+    backgroundColor: checked ? '#8796A5' : '#aab4be',
     borderRadius: 20 / 2,
   },
 }));
@@ -185,14 +190,15 @@ function Navbar() {
         <h1 style={{ color: theme.secondary }}>
           {shortname(headerData.name)}
         </h1>
-
-        <MaterialUISwitch
-          checked={theme.type === 'dark'}
-          onChange={
+        <div className="switch-container">
+          <MaterialUISwitch
+            sx={{ mx: 4, my: 1 }}
+            checked={theme.type === 'dark'}
+            onChange={
             ({ target }) => setTheme(target.checked ? themeData.darkTheme : themeData.lightTheme)
           }
-        />
-
+          />
+        </div>
         <IoMenuSharp
           className={classes.navMenu}
           onClick={handleDrawerOpen}
