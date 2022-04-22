@@ -1,26 +1,29 @@
-import React, { createContext, useState } from 'react'
+import React, {
+  createContext, useCallback, useMemo, useState,
+} from 'react';
 
-import { themeData } from '../data/themeData'
+import { themeData } from '../data/themeData';
 
-export const ThemeContext = createContext()
+export const ThemeContext = createContext();
 
-function ThemeContextProvider(props) {
-    // eslint-disable-next-line
-    const [theme, setTheme] = useState(themeData.lightTheme)
-    const [drawerOpen, setDrawerOpen] = useState(false)
+function ThemeContextProvider({ children }) {
+  const [theme, setTheme] = useState(themeData.lightTheme);
+  const [drawerOpen, setDrawerOpen] = useState(false);
 
-    const setHandleDrawer = () => {
-        setDrawerOpen(!drawerOpen)
-    }
+  const toggleTheme = useCallback(
+    ({ target }) => setTheme(target.checked ? themeData.darkTheme : themeData.lightTheme),
+  );
+  const setHandleDrawer = useCallback(() => setDrawerOpen(!drawerOpen), [drawerOpen]);
 
+  const contextValue = useMemo(() => ({
+    theme, toggleTheme, drawerOpen, setHandleDrawer,
+  }), [theme, setTheme, drawerOpen, setHandleDrawer]);
 
-    const value = { theme, setTheme, drawerOpen, setHandleDrawer }
-    return (
-        <ThemeContext.Provider value={value}>
-            {props.children}
-        </ThemeContext.Provider>
-    )
+  return (
+    <ThemeContext.Provider value={contextValue}>
+      {children}
+    </ThemeContext.Provider>
+  );
 }
 
-
-export default ThemeContextProvider
+export default ThemeContextProvider;

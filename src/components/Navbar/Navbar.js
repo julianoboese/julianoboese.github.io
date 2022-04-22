@@ -70,7 +70,7 @@ const MaterialUISwitch = styled(Switch)(({ checked }) => ({
 }));
 
 function Navbar() {
-  const { theme, setTheme, setHandleDrawer } = useContext(ThemeContext);
+  const { theme, toggleTheme, setHandleDrawer } = useContext(ThemeContext);
 
   const [open, setOpen] = useState(false);
 
@@ -194,9 +194,7 @@ function Navbar() {
           <MaterialUISwitch
             sx={{ mx: 4, my: 1 }}
             checked={theme.type === 'dark'}
-            onChange={
-            ({ target }) => setTheme(target.checked ? themeData.darkTheme : themeData.lightTheme)
-          }
+            onChange={toggleTheme}
           />
         </div>
         <IoMenuSharp
