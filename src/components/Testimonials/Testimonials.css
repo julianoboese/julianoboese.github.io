@@ -1,5 +1,5 @@
 .testimonials {
-    font-family: var(--primaryFont);
+    font-family: var(--primary-font);
     height: 100vh;
     display: flex;
     flex-direction: column;

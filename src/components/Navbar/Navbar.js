@@ -104,7 +104,7 @@ function Navbar() {
     MuiDrawer: {
       padding: '0em 1.8em',
       width: '14em',
-      fontFamily: ' var(--primaryFont)',
+      fontFamily: ' var(--primary-font)',
       fontStyle: ' normal',
       fontWeight: ' normal',
       fontSize: ' 24px',
@@ -159,7 +159,7 @@ function Navbar() {
       },
     },
     drawerLinks: {
-      fontFamily: 'var(--primaryFont)',
+      fontFamily: 'var(--primary-font)',
       width: '50%',
       fontSize: '1.3rem',
       fontWeight: 600,

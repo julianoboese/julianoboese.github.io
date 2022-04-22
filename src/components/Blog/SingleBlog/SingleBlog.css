@@ -37,14 +37,14 @@
 }
 
 .singleBlog--body p {
-    font-family: var(--primaryFont);
+    font-family: var(--primary-font);
     font-weight: 600;
     font-size: 13px;
     margin-bottom: 0.65rem;
 }
 
 .singleBlog--body h3 {
-    font-family: var(--primaryFont);
+    font-family: var(--primary-font);
     margin-bottom: 0.55rem;
     font-size: 19px;
     line-height: 115%;

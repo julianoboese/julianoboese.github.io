@@ -1,5 +1,5 @@
 .footer {
-    font-family: 'var(--primaryFont)', sans-serif;
+    font-family: 'var(--primary-font)', sans-serif;
     height: 60px;
     width: 100%;
     display: flex;
@@ -9,7 +9,7 @@
 
 .footer p {
     font-weight: 500;
-    font-family: var(--primaryFont);
+    font-family: var(--primary-font);
     font-size: 18px;
 }
 

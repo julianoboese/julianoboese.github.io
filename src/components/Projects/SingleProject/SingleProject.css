@@ -23,7 +23,7 @@
 }
 
 .projectContent > h2 {
-    font-family: var(--primaryFont);
+    font-family: var(--primary-font);
     font-style: normal;
     font-weight: 600;
     font-size: 1.525rem;
@@ -73,7 +73,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: var(--primaryFont);
+    font-family: var(--primary-font);
 }
   
 .singleProject:hover .project--desc{
@@ -101,7 +101,7 @@
 }
 
 .project--lang > span {
-    font-family: var(--primaryFont);
+    font-family: var(--primary-font);
     font-weight: 500;
     word-break: break-word; 
     line-height: 100%;

@@ -29,7 +29,7 @@ function Landing() {
             fontSize: '1rem',
             fontWeight: '500',
             height: '50px',
-            fontFamily: 'var(--primaryFont)',
+            fontFamily: 'var(--primary-font)',
             border: `3px solid ${theme.primary}`,
             transition: '100ms ease-out',
             '&:hover': {
@@ -51,7 +51,7 @@ function Landing() {
             height: '50px',
             fontSize: '1rem',
             fontWeight: '500',
-            fontFamily: 'var(--primaryFont)',
+            fontFamily: 'var(--primary-font)',
             border: `3px solid ${theme.primary}`,
             transition: '100ms ease-out',
             '&:hover': {

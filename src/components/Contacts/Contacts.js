@@ -52,7 +52,7 @@ function Contacts() {
             border: `4px solid ${theme.primary80}`,
             backgroundColor: `${theme.secondary}`,
             color: `${theme.tertiary}`,
-            fontFamily: 'var(--primaryFont)',
+            fontFamily: 'var(--primary-font)',
             fontWeight: 500,
             transition: 'border 0.2s ease-in-out',
             '&:focus': {
@@ -63,7 +63,7 @@ function Contacts() {
             border: `4px solid ${theme.primary80}`,
             backgroundColor: `${theme.secondary}`,
             color: `${theme.tertiary}`,
-            fontFamily: 'var(--primaryFont)',
+            fontFamily: 'var(--primary-font)',
             fontWeight: 500,
             transition: 'border 0.2s ease-in-out',
             '&:focus': {
@@ -73,7 +73,7 @@ function Contacts() {
         label: {
             backgroundColor: `${theme.secondary}`,
             color: `${theme.primary}`,
-            fontFamily: 'var(--primaryFont)',
+            fontFamily: 'var(--primary-font)',
             fontWeight: 600,
             fontSize: '0.9rem',
             padding: '0 5px',
@@ -273,7 +273,7 @@ function Contacts() {
                                 style={{
                                     backgroundColor: theme.primary,
                                     color: theme.secondary,
-                                    fontFamily: 'var(--primaryFont)',
+                                    fontFamily: 'var(--primary-font)',
                                 }}
                                 message={errMsg}
                             />

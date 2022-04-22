@@ -17,7 +17,7 @@
 
 .projectPage-header > h1 {
     font-size: 4rem;
-    font-family: var(--primaryFont);
+    font-family: var(--primary-font);
 }
 
 .projectPage-container {
