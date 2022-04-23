@@ -110,8 +110,8 @@ function Navbar() {
       fontSize: ' 24px',
       background: theme.secondary,
       overflow: 'hidden',
-      borderTopRightRadius: '40px',
-      borderBottomRightRadius: '40px',
+      borderTopLeftRadius: '40px',
+      borderBottomLeftRadius: '40px',
       [t.breakpoints.down('sm')]: {
         width: '12em',
       },
@@ -212,7 +212,7 @@ function Navbar() {
             handleDrawerClose();
           }
         }}
-        anchor="left"
+        anchor="right"
         open={open}
         classes={{ paper: classes.MuiDrawer }}
         className="drawer"
@@ -237,7 +237,7 @@ function Navbar() {
 
         <div onClick={handleDrawerClose} role="presentation">
           <div className="navLink--container">
-            <Fade left>
+            <Fade right>
               <NavLink
                 to="/"
                 smooth
@@ -255,7 +255,7 @@ function Navbar() {
               </NavLink>
             </Fade>
 
-            <Fade left>
+            <Fade right>
               <NavLink
                 to="/#about"
                 smooth
@@ -271,7 +271,7 @@ function Navbar() {
               </NavLink>
             </Fade>
 
-            <Fade left>
+            <Fade right>
               <NavLink
                 to="/#resume"
                 smooth
@@ -289,7 +289,7 @@ function Navbar() {
               </NavLink>
             </Fade>
 
-            <Fade left>
+            <Fade right>
               <NavLink
                 to="/#skills"
                 smooth
@@ -307,7 +307,7 @@ function Navbar() {
               </NavLink>
             </Fade>
 
-            <Fade left>
+            <Fade right>
               <NavLink
                 to="/#projects"
                 smooth
@@ -325,7 +325,7 @@ function Navbar() {
               </NavLink>
             </Fade>
 
-            <Fade left>
+            <Fade right>
               <NavLink
                 to="/#contacts"
                 smooth
