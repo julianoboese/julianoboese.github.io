@@ -14,7 +14,7 @@ function Main() {
         <title>
           {headerData.name}
           {' '}
-          - Porfolio
+          - Portfolio
         </title>
       </Helmet>
 
