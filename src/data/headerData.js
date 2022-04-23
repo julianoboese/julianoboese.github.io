@@ -4,7 +4,7 @@ import profileImage from '../assets/jpg/profile-image.jpg';
 export const headerData = {
   name: 'Juliano Boese',
   title: 'Web Developer',
-  description: "There wasn't a bird in the sky, but that was not what caught her attention. It was the clouds. The deep green that isn't the color of clouds, but came with these. She knew what was coming and she hoped she was prepared. ",
+  description: 'I’m a front-end developer who loves building user-friendly websites and web apps, enjoys writing documentation and loves helping people learn how to code. Most recently, I’ve been building web apps with React and serverless providers like Vercel and Netlify.',
   image: profileImage,
   resumePdf: resume,
 };
