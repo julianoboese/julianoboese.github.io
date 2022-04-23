@@ -22,8 +22,8 @@ function Main() {
       <Landing />
       <About />
       <Education />
-      <Skills />
       <Experience />
+      <Skills />
       <Projects />
       <Contacts />
       <Footer />
