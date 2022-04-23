@@ -58,7 +58,6 @@ import strapi from '../assets/svg/skills/strapi.svg';
 import tensorflow from '../assets/svg/skills/tensorflow.svg';
 import webix from '../assets/svg/skills/webix.svg';
 import wordpress from '../assets/svg/skills/wordpress.svg';
-
 import azure from '../assets/svg/skills/azure.svg';
 import blender from '../assets/svg/skills/blender.svg';
 import fastify from '../assets/svg/skills/fastify.svg';
@@ -73,6 +72,9 @@ import sketch from '../assets/svg/skills/sketch.svg';
 import unity from '../assets/svg/skills/unity.svg';
 import wolframalpha from '../assets/svg/skills/wolframalpha.svg';
 import canva from '../assets/svg/skills/canva.svg';
+import jest from '../assets/svg/skills/jest.svg';
+import rtl from '../assets/svg/skills/rtl.svg';
+import redux from '../assets/svg/skills/redux.svg';
 
 export const skillsImage = (skill) => {
   const skillID = skill.toLowerCase();
@@ -175,7 +177,7 @@ export const skillsImage = (skill) => {
       return graphql;
     case 'lightroom':
       return lightroom;
-    case 'materialui':
+    case 'material ui':
       return materialui;
     case 'nginx':
       return nginx;
@@ -225,6 +227,12 @@ export const skillsImage = (skill) => {
       return wolframalpha;
     case 'canva':
       return canva;
+    case 'jest':
+      return jest;
+    case 'rtl':
+      return rtl;
+    case 'redux':
+      return redux;
     default:
       return null;
   }

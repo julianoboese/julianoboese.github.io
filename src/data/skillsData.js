@@ -1,12 +1,14 @@
 export const skillsData = [
   'HTML',
-  'Fastify',
-  'Blender',
-  'Figma',
-  'Javascript',
   'CSS',
+  'Javascript',
+  'Jest',
   'React',
-  'Django',
+  'Redux',
+  'RTL',
+  'Material UI',
+  'Docker',
+  'MySQL',
 ];
 
 export default skillsData;
