@@ -13,7 +13,7 @@ import { headerData } from '../../data/headerData';
 import { socialsData } from '../../data/socialsData';
 
 function Landing() {
-  const { theme, drawerOpen } = useContext(ThemeContext);
+  const { theme } = useContext(ThemeContext);
 
   const useStyles = makeStyles((t) => ({
     resumeBtn: {
@@ -104,7 +104,6 @@ function Landing() {
           alt=""
           className="landing--img"
           style={{
-            opacity: `${drawerOpen ? '0' : '1'}`,
             borderColor: theme.secondary,
           }}
         />
