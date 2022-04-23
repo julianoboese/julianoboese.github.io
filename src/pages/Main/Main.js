@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet';
 
 import {
   Navbar, Footer, Landing, About, Skills, Education,
-  Experience, Contacts, Projects, Achievement,
+  Experience, Contacts, Projects,
 } from '../../components';
 import { headerData } from '../../data/headerData';
 
@@ -25,7 +25,6 @@ function Main() {
       <Skills />
       <Experience />
       <Projects />
-      <Achievement />
       <Contacts />
       <Footer />
     </div>
