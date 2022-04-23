@@ -1,9 +1,10 @@
 {
   "files": {
-    "main.css": "/static/css/main.4dcd717a.css",
-    "main.js": "/static/js/main.f9886da6.js",
+    "main.css": "/static/css/main.ca8e3779.css",
+    "main.js": "/static/js/main.67ea9008.js",
     "static/js/787.60a6ea97.chunk.js": "/static/js/787.60a6ea97.chunk.js",
     "static/media/four.svg": "/static/media/four.797cac62273af3693cd624c5f58e33b5.svg",
+    "static/media/profile-image.jpg": "/static/media/profile-image.686fac686d51e1bf696c.jpg",
     "static/media/three.svg": "/static/media/three.d4f751d1b799f45195a256c314211dfe.svg",
     "static/media/placeholder.png": "/static/media/placeholder.3fcbbdcd05f3e458d129.png",
     "static/media/expOrange.svg": "/static/media/expOrange.9383b2df918bf4e0ce67e3f289602562.svg",
@@ -51,6 +52,7 @@
     "static/media/boy3.svg": "/static/media/boy3.a46b5f817d1a48e38adaddc625f7f312.svg",
     "static/media/postgresql.svg": "/static/media/postgresql.c0d71b7cf608d9c6aa8676fee6925850.svg",
     "static/media/resume.pdf": "/static/media/resume.bc382d73e94155b8ad2d.pdf",
+    "static/media/rtl.svg": "/static/media/rtl.d5952be9740fc423cba701b119390d49.svg",
     "static/media/girl1.svg": "/static/media/girl1.7f9d873622b78af711bd3feab867cb4f.svg",
     "static/media/ruby.svg": "/static/media/ruby.34e792ab70448eb69573a8b2df207f74.svg",
     "static/media/eduOrange.svg": "/static/media/eduOrange.c61dcfc316d381d83890e24aabcbfb95.svg",
@@ -74,6 +76,7 @@
     "static/media/docker.svg": "/static/media/docker.a6221ab3e1802ecb0dbf7045de66c953.svg",
     "static/media/firebase.svg": "/static/media/firebase.99786447afca441defd7055cd07141b7.svg",
     "static/media/blender.svg": "/static/media/blender.b96901d176f9da66b800d3f5eeb92589.svg",
+    "static/media/jest.svg": "/static/media/jest.ace5e466021d20d3d2d49724654a4cf8.svg",
     "static/media/unity.svg": "/static/media/unity.ad58069dbe358b8b7798dbf97edc96f8.svg",
     "static/media/coffeescript.svg": "/static/media/coffeescript.848d1c7741905d68106f553e8a8f7551.svg",
     "static/media/go.svg": "/static/media/go.cda9e1cfbea71f333a455efaf0ac98ed.svg",
@@ -115,6 +118,7 @@
     "static/media/haxe.svg": "/static/media/haxe.10a910ffc452fd5a0e87425ce5ee0404.svg",
     "static/media/slick.woff": "/static/media/slick.295183786cd8a1389865.woff",
     "static/media/canva.svg": "/static/media/canva.b96f915bf6508d8ca76c1b42a19b41f7.svg",
+    "static/media/redux.svg": "/static/media/redux.7d502a9f93562b9f0a01eb056c48f6a5.svg",
     "static/media/git.svg": "/static/media/git.a0b8447eefa4cd939642f1017ee1c962.svg",
     "static/media/numpy.svg": "/static/media/numpy.5bdfa40b32496733d9705274ccad0224.svg",
     "static/media/adobe-xd.svg": "/static/media/adobe-xd.a6dca99dfbbb55b2341d7b1456ca7dcb.svg",
@@ -143,12 +147,12 @@
     "static/media/vue.svg": "/static/media/vue.47bdfb5a7a54d8ade2aa4c61d5148668.svg",
     "static/media/vuetifyjs.svg": "/static/media/vuetifyjs.8a22a3ec81ad62e97094feab6e7ee0fb.svg",
     "static/media/bulma.svg": "/static/media/bulma.5910d4416e077262d0264109649ab214.svg",
-    "main.4dcd717a.css.map": "/static/css/main.4dcd717a.css.map",
-    "main.f9886da6.js.map": "/static/js/main.f9886da6.js.map",
+    "main.ca8e3779.css.map": "/static/css/main.ca8e3779.css.map",
+    "main.67ea9008.js.map": "/static/js/main.67ea9008.js.map",
     "787.60a6ea97.chunk.js.map": "/static/js/787.60a6ea97.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.4dcd717a.css",
-    "static/js/main.f9886da6.js"
+    "static/css/main.ca8e3779.css",
+    "static/js/main.67ea9008.js"
   ]
 }
