@@ -155,10 +155,6 @@
     height: 120px;
     align-items: flex-start;
   }
-
-  .lcr-buttonContainer button:nth-child(2) {
-    display: none;
-  }
 }
 
 @media (max-width: 600px) {
@@ -221,10 +217,10 @@
   }
 
   .lcr-buttonContainer {
-    margin: 0 auto;
+    margin: 10% auto;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
   }
 
   .lcr-buttonContainer button {
