@@ -157,3 +157,13 @@
     width: 200px;
   }
 }
+
+@media (max-width: 370px) {
+  .line-styling {
+    margin-top: 3rem;
+  }
+
+  .about-img > img {
+    margin-top: 3rem;
+  }
+}
