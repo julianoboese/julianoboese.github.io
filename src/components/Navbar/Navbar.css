@@ -25,6 +25,14 @@
   user-select: none;
 }
 
+.MuiToggleButtonGroup-root {
+  align-self: flex-start;
+}
+
+.MuiToggleButtonGroup-grouped > img {
+  height: 22px;
+}
+
 .navLink--container {
   margin-top: 5rem;
 }

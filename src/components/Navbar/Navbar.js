@@ -11,12 +11,15 @@ import Drawer from '@material-ui/core/Drawer';
 import CloseIcon from '@material-ui/icons/Close';
 
 import './Navbar.css';
+import { ToggleButton, ToggleButtonGroup } from '@mui/material';
 import { headerData } from '../../data/headerData';
 import { ThemeContext } from '../../contexts/ThemeContext';
 import ThemeToggler from './ThemeToggler';
+import { LanguageContext } from '../../contexts/LanguageContext';
 
 function Navbar() {
   const { theme, toggleTheme, setHandleDrawer } = useContext(ThemeContext);
+  const { language, toggleLanguage } = useContext(LanguageContext);
 
   const [open, setOpen] = useState(false);
 
@@ -136,6 +139,19 @@ function Navbar() {
         <h1 style={{ color: theme.secondary }}>
           {shortname(headerData.name)}
         </h1>
+        <ToggleButtonGroup
+          value={language}
+          exclusive
+          onChange={toggleLanguage}
+          sx={{ backgroundColor: theme.primary30 }}
+        >
+          <ToggleButton value="en" sx={{ padding: '3px', height: '100%' }}>
+            <img src="https://img.icons8.com/color/48/undefined/usa.png" alt="usa-flag" />
+          </ToggleButton>
+          <ToggleButton value="pt" sx={{ padding: '3px', height: '100%' }}>
+            <img src="https://img.icons8.com/color/48/undefined/brazil.png" alt="brazil-flag" />
+          </ToggleButton>
+        </ToggleButtonGroup>
         <div className="switch-container">
           <ThemeToggler
             sx={{ mx: 4, my: 1 }}
