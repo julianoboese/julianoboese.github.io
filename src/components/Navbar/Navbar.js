@@ -21,6 +21,8 @@ function Navbar() {
   const { theme, toggleTheme, setHandleDrawer } = useContext(ThemeContext);
   const { language, toggleLanguage } = useContext(LanguageContext);
 
+  const { name } = headerData[language];
+
   const [open, setOpen] = useState(false);
 
   const handleDrawerOpen = () => {
@@ -126,18 +128,18 @@ function Navbar() {
 
   const classes = useStyles();
 
-  const shortname = (name) => {
-    if (name.length > 12) {
-      return name.split(' ').reduce((acc, curr) => acc + curr.slice(0, 1), '');
+  const shortname = (longName) => {
+    if (longName.length > 12) {
+      return longName.split(' ').reduce((acc, curr) => acc + curr.slice(0, 1), '');
     }
-    return name;
+    return longName;
   };
 
   return (
     <div className="navbar">
       <div className="navbar--container">
         <h1 style={{ color: theme.secondary }}>
-          {shortname(headerData.name)}
+          {shortname(name)}
         </h1>
         <ToggleButtonGroup
           value={language}
@@ -235,24 +237,6 @@ function Navbar() {
 
             <Fade right>
               <NavLink
-                to="/#resume"
-                smooth
-                spy="true"
-                duration={2000}
-              >
-                <div className={classes.drawerItem}>
-                  <HiDocumentText
-                    className={classes.drawerIcon}
-                  />
-                  <span className={classes.drawerLinks}>
-                    Resume
-                  </span>
-                </div>
-              </NavLink>
-            </Fade>
-
-            <Fade right>
-              <NavLink
                 to="/#skills"
                 smooth
                 spy="true"
@@ -282,6 +266,24 @@ function Navbar() {
                   />
                   <span className={classes.drawerLinks}>
                     Projects
+                  </span>
+                </div>
+              </NavLink>
+            </Fade>
+
+            <Fade right>
+              <NavLink
+                to="/#resume"
+                smooth
+                spy="true"
+                duration={2000}
+              >
+                <div className={classes.drawerItem}>
+                  <HiDocumentText
+                    className={classes.drawerIcon}
+                  />
+                  <span className={classes.drawerLinks}>
+                    Resume
                   </span>
                 </div>
               </NavLink>
