@@ -11,7 +11,10 @@ import Drawer from '@material-ui/core/Drawer';
 import CloseIcon from '@material-ui/icons/Close';
 
 import './Navbar.css';
-import { ToggleButton, ToggleButtonGroup } from '@mui/material';
+import {
+  Box, Button, Dialog, DialogActions, DialogContent, DialogTitle, FormControl, InputLabel, MenuItem,
+  OutlinedInput, Select, ToggleButton, ToggleButtonGroup,
+} from '@mui/material';
 import { headerData } from '../../data/headerData';
 import { ThemeContext } from '../../contexts/ThemeContext';
 import ThemeToggler from './ThemeToggler';
@@ -33,6 +36,18 @@ function Navbar() {
   const handleDrawerClose = () => {
     setOpen(false);
     setHandleDrawer();
+  };
+
+  const [optionsOpen, setOptionsOpen] = useState(false);
+
+  const handleClickOpen = () => {
+    setOptionsOpen(true);
+  };
+
+  const handleClose = (event, reason) => {
+    if (reason !== 'backdropClick') {
+      setOptionsOpen(false);
+    }
   };
 
   const useStyles = makeStyles((t) => ({
@@ -141,11 +156,21 @@ function Navbar() {
         <h1 style={{ color: theme.secondary }}>
           {shortname(name)}
         </h1>
+        <div>
+          <Button onClick={handleClickOpen}>Open select dialog</Button>
+          <Dialog disableEscapeKeyDown open={optionsOpen} onClose={handleClose}>
+            <DialogTitle>Settings</DialogTitle>
+            <DialogContent>
+              <Box component="form" sx={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center' }}>
+                <ThemeToggler
+                  sx={{ mx: 4, my: 1 }}
+                  checked={theme.type === 'dark'}
+                  onChange={toggleTheme}
+                />
         <ToggleButtonGroup
           value={language}
           exclusive
           onChange={toggleLanguage}
-          sx={{ backgroundColor: theme.primary30 }}
         >
           <ToggleButton value="en" sx={{ padding: '3px', height: '100%' }}>
             <img src="https://img.icons8.com/color/48/undefined/usa.png" alt="usa-flag" />
@@ -154,12 +179,13 @@ function Navbar() {
             <img src="https://img.icons8.com/color/48/undefined/brazil.png" alt="brazil-flag" />
           </ToggleButton>
         </ToggleButtonGroup>
-        <div className="switch-container">
-          <ThemeToggler
-            sx={{ mx: 4, my: 1 }}
-            checked={theme.type === 'dark'}
-            onChange={toggleTheme}
-          />
+              </Box>
+            </DialogContent>
+            <DialogActions>
+              <Button onClick={handleClose}>Cancel</Button>
+              <Button onClick={handleClose}>Ok</Button>
+            </DialogActions>
+          </Dialog>
         </div>
         <IoMenuSharp
           className={classes.navMenu}
