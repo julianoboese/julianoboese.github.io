@@ -11,9 +11,15 @@ import {
 import { ThemeContext } from '../../contexts/ThemeContext';
 import { headerData } from '../../data/headerData';
 import { socialsData } from '../../data/socialsData';
+import { LanguageContext } from '../../contexts/LanguageContext';
 
 function Landing() {
   const { theme } = useContext(ThemeContext);
+  const { language } = useContext(LanguageContext);
+
+  const {
+    name, title, description, image, resumePdf,
+  } = headerData[language];
 
   const useStyles = makeStyles((t) => ({
     resumeBtn: {
@@ -100,7 +106,7 @@ function Landing() {
           </div>
         </div>
         <img
-          src={headerData.image}
+          src={image}
           alt=""
           className="landing--img"
           style={{
@@ -115,14 +121,14 @@ function Landing() {
             className="lcr--content"
             style={{ color: theme.tertiary }}
           >
-            <h6>{headerData.title}</h6>
-            <h1>{headerData.name}</h1>
-            <p>{headerData.description}</p>
+            <h6>{title}</h6>
+            <h1>{name}</h1>
+            <p>{description}</p>
 
             <div className="lcr-buttonContainer">
-              {headerData.resumePdf && (
+              {resumePdf && (
                 <a
-                  href={headerData.resumePdf}
+                  href={resumePdf}
                   download="Resume - Juliano Boese"
                   target="_blank"
                   rel="noreferrer"

@@ -11,12 +11,23 @@ import Drawer from '@material-ui/core/Drawer';
 import CloseIcon from '@material-ui/icons/Close';
 
 import './Navbar.css';
+import {
+  Box, Button, Dialog, DialogActions, DialogContent, DialogTitle, FormControl, InputLabel, MenuItem,
+  OutlinedInput, Select, ToggleButton, ToggleButtonGroup,
+} from '@mui/material';
 import { headerData } from '../../data/headerData';
+import { themeData } from '../../data/themeData';
 import { ThemeContext } from '../../contexts/ThemeContext';
 import ThemeToggler from './ThemeToggler';
+import { LanguageContext } from '../../contexts/LanguageContext';
 
 function Navbar() {
-  const { theme, toggleTheme, setHandleDrawer } = useContext(ThemeContext);
+  const {
+    themeColor, selectThemeColor, theme, selectThemeType, setHandleDrawer,
+  } = useContext(ThemeContext);
+  const { language, toggleLanguage } = useContext(LanguageContext);
+
+  const { name } = headerData[language];
 
   const [open, setOpen] = useState(false);
 
@@ -28,6 +39,18 @@ function Navbar() {
   const handleDrawerClose = () => {
     setOpen(false);
     setHandleDrawer();
+  };
+
+  const [optionsOpen, setOptionsOpen] = useState(false);
+
+  const handleClickOpen = () => {
+    setOptionsOpen(true);
+  };
+
+  const handleClose = (event, reason) => {
+    if (reason !== 'backdropClick') {
+      setOptionsOpen(false);
+    }
   };
 
   const useStyles = makeStyles((t) => ({
@@ -123,25 +146,65 @@ function Navbar() {
 
   const classes = useStyles();
 
-  const shortname = (name) => {
-    if (name.length > 12) {
-      return name.split(' ').reduce((acc, curr) => acc + curr.slice(0, 1), '');
+  const shortname = (longName) => {
+    if (longName.length > 12) {
+      return longName.split(' ').reduce((acc, curr) => acc + curr.slice(0, 1), '');
     }
-    return name;
+    return longName;
   };
 
   return (
     <div className="navbar">
       <div className="navbar--container">
         <h1 style={{ color: theme.secondary }}>
-          {shortname(headerData.name)}
+          {shortname(name)}
         </h1>
-        <div className="switch-container">
-          <ThemeToggler
-            sx={{ mx: 4, my: 1 }}
-            checked={theme.type === 'dark'}
-            onChange={toggleTheme}
-          />
+        <div>
+          <Button onClick={handleClickOpen}>Open select dialog</Button>
+          <Dialog disableEscapeKeyDown open={optionsOpen} onClose={handleClose}>
+            <DialogTitle>Settings</DialogTitle>
+            <DialogContent>
+              <Box component="form" sx={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center' }}>
+                <ThemeToggler
+                  sx={{ mx: 4, my: 1 }}
+                  checked={theme.type === 'dark'}
+                  onChange={selectThemeType}
+                />
+                <ToggleButtonGroup
+                  value={language}
+                  exclusive
+                  onChange={toggleLanguage}
+                >
+                  <ToggleButton value="en" sx={{ padding: '3px', height: '100%' }}>
+                    <img src="https://img.icons8.com/color/48/undefined/usa.png" alt="usa-flag" />
+                  </ToggleButton>
+                  <ToggleButton value="pt" sx={{ padding: '3px', height: '100%' }}>
+                    <img src="https://img.icons8.com/color/48/undefined/brazil.png" alt="brazil-flag" />
+                  </ToggleButton>
+                </ToggleButtonGroup>
+                <FormControl sx={{ m: 3, minWidth: 120 }}>
+                  <InputLabel id="theme-color-select">Theme Color</InputLabel>
+                  <Select
+                    labelId="theme-color-select"
+                    value={themeColor}
+                    onChange={selectThemeColor}
+                    input={<OutlinedInput label="Theme Color" />}
+                    sx={{ height: '40px', m: 1, minWidth: 150 }}
+                  >
+                    {Object.keys(themeData).map((color) => (
+                      <MenuItem value={color}>
+                        {color.charAt(0).toUpperCase() + color.slice(1)}
+                      </MenuItem>
+                    ))}
+                  </Select>
+                </FormControl>
+              </Box>
+            </DialogContent>
+            <DialogActions>
+              <Button onClick={handleClose}>Cancel</Button>
+              <Button onClick={handleClose}>Ok</Button>
+            </DialogActions>
+          </Dialog>
         </div>
         <IoMenuSharp
           className={classes.navMenu}
@@ -219,24 +282,6 @@ function Navbar() {
 
             <Fade right>
               <NavLink
-                to="/#resume"
-                smooth
-                spy="true"
-                duration={2000}
-              >
-                <div className={classes.drawerItem}>
-                  <HiDocumentText
-                    className={classes.drawerIcon}
-                  />
-                  <span className={classes.drawerLinks}>
-                    Resume
-                  </span>
-                </div>
-              </NavLink>
-            </Fade>
-
-            <Fade right>
-              <NavLink
                 to="/#skills"
                 smooth
                 spy="true"
@@ -266,6 +311,24 @@ function Navbar() {
                   />
                   <span className={classes.drawerLinks}>
                     Projects
+                  </span>
+                </div>
+              </NavLink>
+            </Fade>
+
+            <Fade right>
+              <NavLink
+                to="/#resume"
+                smooth
+                spy="true"
+                duration={2000}
+              >
+                <div className={classes.drawerItem}>
+                  <HiDocumentText
+                    className={classes.drawerIcon}
+                  />
+                  <span className={classes.drawerLinks}>
+                    Resume
                   </span>
                 </div>
               </NavLink>

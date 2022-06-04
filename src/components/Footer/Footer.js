@@ -2,13 +2,18 @@ import React, { useContext } from 'react';
 import './Footer.css';
 import { ThemeContext } from '../../contexts/ThemeContext';
 import { headerData } from '../../data/headerData';
+import { LanguageContext } from '../../contexts/LanguageContext';
 
 function Footer() {
-  const shortname = (name) => {
-    if (name.length > 10) {
-      return name.split(' ')[0];
+  const { language } = useContext(LanguageContext);
+
+  const { name } = headerData[language];
+
+  const shortname = (longName) => {
+    if (longName.length > 10) {
+      return longName.split(' ')[0];
     }
-    return name;
+    return longName;
   };
 
   const { theme } = useContext(ThemeContext);
@@ -22,7 +27,7 @@ function Footer() {
         </span>
         by
         {' '}
-        {shortname(headerData.name)}
+        {shortname(name)}
       </p>
     </div>
   );
