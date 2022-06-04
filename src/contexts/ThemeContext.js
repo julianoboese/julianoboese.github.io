@@ -7,14 +7,15 @@ import { themeData } from '../data/themeData';
 export const ThemeContext = createContext();
 
 function ThemeContextProvider({ children }) {
-  const [themeColor, setThemeColor] = useState('green');
-  const [themeType, setThemeType] = useState('lightTheme');
+  const [themeColor, setThemeColor] = useState(localStorage.getItem('themeColor') || 'green');
+  const [themeType, setThemeType] = useState(localStorage.getItem('themeType') || 'lightTheme');
   const [theme, setTheme] = useState(themeData[themeColor].lightTheme);
   const [drawerOpen, setDrawerOpen] = useState(false);
 
   const selectThemeColor = useCallback(
     ({ target }) => {
       setThemeColor(target.value);
+      localStorage.setItem('themeColor', target.value);
     },
   );
 
@@ -22,6 +23,7 @@ function ThemeContextProvider({ children }) {
     ({ target }) => {
       const newType = target.checked ? 'darkTheme' : 'lightTheme';
       setThemeType(newType);
+      localStorage.setItem('themeType', newType);
     },
   );
 
