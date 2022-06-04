@@ -7,11 +7,14 @@ import ThemeContextProvider from './contexts/ThemeContext';
 
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
+import LanguageContextProvider from './contexts/LanguageContext';
 
 ReactDOM.render(
-  <ThemeContextProvider>
-    <App />
-  </ThemeContextProvider>,
+  <LanguageContextProvider>
+    <ThemeContextProvider>
+      <App />
+    </ThemeContextProvider>
+  </LanguageContextProvider>,
   document.getElementById('root'),
 );
 
