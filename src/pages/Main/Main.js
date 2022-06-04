@@ -25,10 +25,10 @@ function Main() {
       <Navbar />
       <Landing />
       <About />
-      <Education />
-      <Experience />
       <Skills />
       <Projects />
+      <Education />
+      <Experience />
       <Contacts />
       <Footer />
     </div>
