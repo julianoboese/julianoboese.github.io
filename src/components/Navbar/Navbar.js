@@ -16,12 +16,15 @@ import {
   OutlinedInput, Select, ToggleButton, ToggleButtonGroup,
 } from '@mui/material';
 import { headerData } from '../../data/headerData';
+import { themeData } from '../../data/themeData';
 import { ThemeContext } from '../../contexts/ThemeContext';
 import ThemeToggler from './ThemeToggler';
 import { LanguageContext } from '../../contexts/LanguageContext';
 
 function Navbar() {
-  const { theme, toggleTheme, setHandleDrawer } = useContext(ThemeContext);
+  const {
+    themeColor, selectThemeColor, theme, selectThemeType, setHandleDrawer,
+  } = useContext(ThemeContext);
   const { language, toggleLanguage } = useContext(LanguageContext);
 
   const { name } = headerData[language];
@@ -165,20 +168,36 @@ function Navbar() {
                 <ThemeToggler
                   sx={{ mx: 4, my: 1 }}
                   checked={theme.type === 'dark'}
-                  onChange={toggleTheme}
+                  onChange={selectThemeType}
                 />
-        <ToggleButtonGroup
-          value={language}
-          exclusive
-          onChange={toggleLanguage}
-        >
-          <ToggleButton value="en" sx={{ padding: '3px', height: '100%' }}>
-            <img src="https://img.icons8.com/color/48/undefined/usa.png" alt="usa-flag" />
-          </ToggleButton>
-          <ToggleButton value="pt" sx={{ padding: '3px', height: '100%' }}>
-            <img src="https://img.icons8.com/color/48/undefined/brazil.png" alt="brazil-flag" />
-          </ToggleButton>
-        </ToggleButtonGroup>
+                <ToggleButtonGroup
+                  value={language}
+                  exclusive
+                  onChange={toggleLanguage}
+                >
+                  <ToggleButton value="en" sx={{ padding: '3px', height: '100%' }}>
+                    <img src="https://img.icons8.com/color/48/undefined/usa.png" alt="usa-flag" />
+                  </ToggleButton>
+                  <ToggleButton value="pt" sx={{ padding: '3px', height: '100%' }}>
+                    <img src="https://img.icons8.com/color/48/undefined/brazil.png" alt="brazil-flag" />
+                  </ToggleButton>
+                </ToggleButtonGroup>
+                <FormControl sx={{ m: 3, minWidth: 120 }}>
+                  <InputLabel id="theme-color-select">Theme Color</InputLabel>
+                  <Select
+                    labelId="theme-color-select"
+                    value={themeColor}
+                    onChange={selectThemeColor}
+                    input={<OutlinedInput label="Theme Color" />}
+                    sx={{ height: '40px', m: 1, minWidth: 150 }}
+                  >
+                    {Object.keys(themeData).map((color) => (
+                      <MenuItem value={color}>
+                        {color.charAt(0).toUpperCase() + color.slice(1)}
+                      </MenuItem>
+                    ))}
+                  </Select>
+                </FormControl>
               </Box>
             </DialogContent>
             <DialogActions>
