@@ -1,5 +1,4 @@
 import { styled, Switch } from '@mui/material';
-import { themeData } from '../../data/themeData';
 
 const ThemeToggler = styled(Switch)(({ checked }) => ({
   width: 62,
@@ -23,13 +22,11 @@ const ThemeToggler = styled(Switch)(({ checked }) => ({
       },
     },
     '&:hover .MuiSwitch-thumb': {
-      backgroundColor: checked && window.screen.width > 600
-        ? themeData.lightTheme.primary400 : '#636363',
+      backgroundColor: '#636363',
     },
   },
   '& .MuiSwitch-thumb': {
-    backgroundColor: checked && window.screen.width > 600
-      ? themeData.lightTheme.primary : themeData.darkTheme.secondary,
+    backgroundColor: '#212121',
     width: 32,
     height: 32,
     '&:before': {
