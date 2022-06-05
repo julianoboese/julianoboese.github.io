@@ -1,6 +1,6 @@
-import one from '../assets/svg/projects/one.svg';
-import two from '../assets/svg/projects/two.svg';
-import three from '../assets/svg/projects/three.svg';
+import one from '../assets/png/projects/recipes-app.png';
+import two from '../assets/png/projects/trivia.png';
+import three from '../assets/png/projects/tryunfo.png';
 
 export const projectsData = [
   {
