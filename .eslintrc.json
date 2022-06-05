@@ -26,6 +26,11 @@
       "react/jsx-no-useless-fragment": ["error", { "allowExpressions": true }],
       "react/prop-types": "off",
       "react/jsx-props-no-spreading": ["error", { "custom": "ignore" }],
-      "jsx-a11y/label-has-associated-control": ["error", { "assert": "either" }]
+      "jsx-a11y/label-has-associated-control": ["error", { "assert": "either" }],
+      "object-curly-newline": ["error", {
+        "ObjectPattern": { "multiline": true },
+        "ImportDeclaration": { "multiline": true }
+      }],
+      "no-unused-vars": ["error", { "argsIgnorePattern": "^_" }]
     }
 }

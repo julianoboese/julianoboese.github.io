@@ -13,8 +13,8 @@ import SettingsIcon from '@material-ui/icons/Settings';
 
 import './Navbar.css';
 import {
-  Box, Button, Dialog, DialogActions, DialogContent, DialogTitle, FormControl, InputLabel, MenuItem,
-  OutlinedInput, Select, ToggleButton, ToggleButtonGroup,
+  Box, Button, Dialog, DialogActions, DialogContent, DialogTitle, FormControl, InputLabel,
+  MenuItem, OutlinedInput, Select, ToggleButton, ToggleButtonGroup,
 } from '@mui/material';
 import { headerData } from '../../data/headerData';
 import { themeData } from '../../data/themeData';
@@ -24,8 +24,10 @@ import { LanguageContext } from '../../contexts/LanguageContext';
 
 function Navbar() {
   const {
-    themeColor, selectThemeColor, theme, selectThemeType, setHandleDrawer,
+    themeColor, selectThemeColor, theme, selectThemeType,
+    setHandleDrawer,
   } = useContext(ThemeContext);
+
   const { language, toggleLanguage } = useContext(LanguageContext);
 
   const { name } = headerData[language];
