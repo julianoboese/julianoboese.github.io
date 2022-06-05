@@ -10,10 +10,14 @@ import { SingleProject } from '../../components';
 import { ThemeContext } from '../../contexts/ThemeContext';
 import { projectsData } from '../../data/projectsData';
 import { headerData } from '../../data/headerData';
+import { LanguageContext } from '../../contexts/LanguageContext';
 
 function ProjectPage() {
   const [search, setSearch] = useState('');
   const { theme } = useContext(ThemeContext);
+  const { language } = useContext(LanguageContext);
+
+  const { name } = headerData[language];
 
   const filteredArticles = projectsData.filter((project) => {
     const content = project.projectName + project.projectDesc + project.tags;
@@ -42,6 +46,7 @@ function ProjectPage() {
       },
     },
     home: {
+      backgroundColor: theme.primary600,
       color: theme.secondary,
       position: 'absolute',
       top: 25,
@@ -70,7 +75,7 @@ function ProjectPage() {
     <div className="projectPage" style={{ backgroundColor: theme.secondary }}>
       <Helmet>
         <title>
-          {headerData.name}
+          {name}
           {' '}
           | Projects
         </title>
