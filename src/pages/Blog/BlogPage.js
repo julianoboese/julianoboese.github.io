@@ -1,19 +1,24 @@
 import React, { useContext, useState } from 'react';
 import { Helmet } from 'react-helmet';
-import { Grid } from '@material-ui/core';
+import { Grid } from '@mui/material';
 import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
-import { AiOutlineHome } from 'react-icons/ai';
+import HomeIcon from '@mui/icons-material/Home';
 
 import './BlogPage.css';
 import { SingleBlog } from '../../components';
 import { ThemeContext } from '../../contexts/ThemeContext';
 import { blogData } from '../../data/blogData';
 import { headerData } from '../../data/headerData';
+import { LanguageContext } from '../../contexts/LanguageContext';
 
 function BlogPage() {
   const [search, setSearch] = useState('');
   const { theme } = useContext(ThemeContext);
+
+  const { language } = useContext(LanguageContext);
+
+  const { name } = headerData[language];
 
   const filteredArticles = blogData.filter((blog) => {
     const content = blog.title + blog.description + blog.date;
@@ -41,27 +46,6 @@ function BlogPage() {
         width: '350px',
       },
     },
-    home: {
-      color: theme.secondary,
-      position: 'absolute',
-      top: 25,
-      left: 25,
-      padding: '7px',
-      borderRadius: '50%',
-      boxSizing: 'content-box',
-      fontSize: '2rem',
-      cursor: 'pointer',
-      boxShadow: theme.type === 'dark' ? '3px 3px 6px #ffffff40, -3px -3px 6px #00000050' : '3px 3px 6px #ffffff40, -3px -3px 6px #00000050',
-      transition: 'all 0.3s ease-in-out',
-      '&:hover':
-            {
-              color: theme.tertiary,
-              transform: 'scale(1.1)',
-            },
-      [t.breakpoints.down('sm')]: {
-        fontSize: '1.8rem',
-      },
-    },
   }));
 
   const classes = useStyles();
@@ -70,14 +54,37 @@ function BlogPage() {
     <div className="blogPage" style={{ backgroundColor: theme.secondary }}>
       <Helmet>
         <title>
-          {headerData.name}
+          {name}
           {' '}
           | Blog
         </title>
       </Helmet>
       <div className="blogPage--header" style={{ backgroundColor: theme.primary }}>
         <Link to="/">
-          <AiOutlineHome className={classes.home} />
+          <HomeIcon
+            className={classes.home}
+            sx={{
+              color: theme.secondary,
+              position: 'absolute',
+              top: 25,
+              left: 25,
+              padding: '7px',
+              borderRadius: '50%',
+              boxSizing: 'content-box',
+              fontSize: {
+                xs: '1.8rem',
+                sm: '2rem',
+              },
+              cursor: 'pointer',
+              boxShadow: theme.type === 'dark' ? '3px 3px 6px #ffffff40, -3px -3px 6px #00000050' : '3px 3px 6px #ffffff40, -3px -3px 6px #00000050',
+              transition: 'all 0.3s ease-in-out',
+              '&:hover':
+            {
+              color: theme.tertiary,
+              transform: 'scale(1.1)',
+            },
+            }}
+          />
         </Link>
         <h1 style={{ color: theme.secondary }}>Blogs</h1>
       </div>

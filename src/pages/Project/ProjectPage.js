@@ -1,9 +1,9 @@
 import React, { useContext, useState } from 'react';
 import { Helmet } from 'react-helmet';
-import { Grid } from '@material-ui/core';
+import { Grid } from '@mui/material';
 import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/core/styles';
-import { AiOutlineHome } from 'react-icons/ai';
+import HomeIcon from '@mui/icons-material/Home';
 
 import './ProjectPage.css';
 import { SingleProject } from '../../components';
@@ -45,28 +45,6 @@ function ProjectPage() {
         width: '350px',
       },
     },
-    home: {
-      backgroundColor: theme.primary600,
-      color: theme.secondary,
-      position: 'absolute',
-      top: 25,
-      left: 25,
-      padding: '7px',
-      borderRadius: '50%',
-      boxSizing: 'content-box',
-      fontSize: '2rem',
-      cursor: 'pointer',
-      boxShadow: theme.type === 'dark' ? '3px 3px 6px #ffffff40, -3px -3px 6px #00000050' : '3px 3px 6px #ffffff40, -3px -3px 6px #00000050',
-      transition: 'all 0.3s ease-in-out',
-      '&:hover':
-            {
-              color: theme.tertiary,
-              transform: 'scale(1.1)',
-            },
-      [t.breakpoints.down('sm')]: {
-        fontSize: '1.8rem',
-      },
-    },
   }));
 
   const classes = useStyles();
@@ -82,7 +60,30 @@ function ProjectPage() {
       </Helmet>
       <div className="projectPage-header" style={{ backgroundColor: theme.primary }}>
         <Link to="/">
-          <AiOutlineHome className={classes.home} />
+          <HomeIcon
+            className={classes.home}
+            sx={{
+              color: theme.secondary,
+              position: 'absolute',
+              top: 25,
+              left: 25,
+              padding: '7px',
+              borderRadius: '50%',
+              boxSizing: 'content-box',
+              fontSize: {
+                xs: '1.8rem',
+                sm: '2rem',
+              },
+              cursor: 'pointer',
+              boxShadow: theme.type === 'dark' ? '3px 3px 6px #ffffff40, -3px -3px 6px #00000050' : '3px 3px 6px #ffffff40, -3px -3px 6px #00000050',
+              transition: 'all 0.3s ease-in-out',
+              '&:hover':
+            {
+              color: theme.tertiary,
+              transform: 'scale(1.1)',
+            },
+            }}
+          />
         </Link>
         <h1 style={{ color: theme.secondary }}>Projects</h1>
       </div>

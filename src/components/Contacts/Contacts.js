@@ -1,13 +1,12 @@
 import React, { useContext, useState } from 'react';
-import { Snackbar, IconButton, SnackbarContent } from '@material-ui/core';
+import { Snackbar, IconButton, SnackbarContent } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 import axios from 'axios';
 import isEmail from 'validator/lib/isEmail';
 import { makeStyles } from '@material-ui/core/styles';
-import {
-  FaLinkedinIn,
-  FaGithub,
-} from 'react-icons/fa';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import GitHubIcon from '@mui/icons-material/GitHub';
+
 import { AiOutlineSend, AiOutlineCheckCircle } from 'react-icons/ai';
 import { FiPhone, FiAtSign } from 'react-icons/fi';
 import { HiOutlineLocationMarker } from 'react-icons/hi';
@@ -60,16 +59,6 @@ function Contacts() {
       '&:focus': {
         border: `4px solid ${theme.primary600}`,
       },
-    },
-    label: {
-      backgroundColor: `${theme.secondary}`,
-      color: `${theme.primary}`,
-      fontFamily: 'var(--primary-font)',
-      fontWeight: 600,
-      fontSize: '0.9rem',
-      padding: '0 5px',
-      transform: 'translate(25px,50%)',
-      display: 'inline-flex',
     },
     socialIcon: {
       width: '45px',
@@ -162,7 +151,21 @@ function Contacts() {
           <div className="contacts-form">
             <form onSubmit={handleContactForm}>
               <div className="input-container">
-                <label htmlFor="form-input-name" className={classes.label}>Name</label>
+                <label
+                  htmlFor="form-input-name"
+                  style={{
+                    backgroundColor: `${theme.secondary}`,
+                    color: `${theme.primary}`,
+                    fontFamily: 'var(--primary-font)',
+                    fontWeight: 600,
+                    fontSize: '0.9rem',
+                    padding: '0 5px',
+                    transform: 'translate(25px,50%)',
+                    display: 'inline-flex',
+                  }}
+                >
+                  Name
+                </label>
                 <input
                   placeholder="John Doe"
                   value={name}
@@ -174,7 +177,21 @@ function Contacts() {
                 />
               </div>
               <div className="input-container">
-                <label htmlFor="form-input-email" className={classes.label}>Email</label>
+                <label
+                  htmlFor="form-input-email"
+                  style={{
+                    backgroundColor: `${theme.secondary}`,
+                    color: `${theme.primary}`,
+                    fontFamily: 'var(--primary-font)',
+                    fontWeight: 600,
+                    fontSize: '0.9rem',
+                    padding: '0 5px',
+                    transform: 'translate(25px,50%)',
+                    display: 'inline-flex',
+                  }}
+                >
+                  Email
+                </label>
                 <input
                   placeholder="john.doe@gmail.com"
                   value={email}
@@ -186,7 +203,21 @@ function Contacts() {
                 />
               </div>
               <div className="input-container">
-                <label htmlFor="form-input-message" className={classes.label}>Message</label>
+                <label
+                  htmlFor="form-input-message"
+                  style={{
+                    backgroundColor: `${theme.secondary}`,
+                    color: `${theme.primary}`,
+                    fontFamily: 'var(--primary-font)',
+                    fontWeight: 600,
+                    fontSize: '0.9rem',
+                    padding: '0 5px',
+                    transform: 'translate(25px,50%)',
+                    display: 'inline-flex',
+                  }}
+                >
+                  Message
+                </label>
                 <textarea
                   placeholder="Type your message..."
                   value={message}
@@ -208,12 +239,8 @@ function Contacts() {
                     <AiOutlineSend
                       className="send-icon"
                       style={{
-                        animation: !success
-                          ? 'initial'
-                          : 'fly 0.8s linear both',
-                        position: success
-                          ? 'absolute'
-                          : 'initial',
+                        animation: !success ? 'initial' : 'fly 0.8s linear both',
+                        position: !success ? 'initial' : 'absolute',
                       }}
                     />
                     <AiOutlineCheckCircle
@@ -299,7 +326,7 @@ function Contacts() {
                   rel="noreferrer"
                   className={classes.socialIcon}
                 >
-                  <FaGithub aria-label="GitHub" />
+                  <GitHubIcon aria-label="GitHub" />
                 </a>
               )}
               {socialsData.linkedIn && (
@@ -309,7 +336,7 @@ function Contacts() {
                   rel="noreferrer"
                   className={classes.socialIcon}
                 >
-                  <FaLinkedinIn aria-label="LinkedIn" />
+                  <LinkedInIcon aria-label="LinkedIn" />
                 </a>
               )}
             </div>

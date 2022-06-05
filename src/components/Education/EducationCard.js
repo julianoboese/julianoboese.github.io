@@ -1,32 +1,26 @@
 import React, { useContext } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import Fade from 'react-reveal/Fade';
 
+import { Box } from '@mui/material';
 import { ThemeContext } from '../../contexts/ThemeContext';
 
 import eduImgWhite from '../../assets/svg/education/eduImgWhite.svg';
 import eduImgBlack from '../../assets/svg/education/eduImgBlack.svg';
 import './Education.css';
 
-function EducationCard({
-  id, institution, course, startYear, endYear,
-}) {
+function EducationCard({ id, institution, course, startYear, endYear }) {
   const { theme } = useContext(ThemeContext);
-
-  const useStyles = makeStyles(() => ({
-    educationCard: {
-      backgroundColor: theme.primary30,
-      '&:hover': {
-        backgroundColor: theme.primary50,
-      },
-    },
-  }));
-
-  const classes = useStyles();
 
   return (
     <Fade bottom>
-      <div key={id} className={`education-card ${classes.educationCard}`}>
+      <Box
+        key={id}
+        className="education-card"
+        sx={{ backgroundColor: theme.primary30,
+          '&:hover': {
+            backgroundColor: theme.primary50,
+          } }}
+      >
         <div className="educard-img" style={{ backgroundColor: theme.primary }}>
           <img src={theme.type === 'light' ? eduImgBlack : eduImgWhite} alt="" />
         </div>
@@ -39,7 +33,7 @@ function EducationCard({
           <h4 style={{ color: theme.tertiary }}>{course}</h4>
           <h5 style={{ color: theme.tertiary80 }}>{institution}</h5>
         </div>
-      </div>
+      </Box>
     </Fade>
   );
 }

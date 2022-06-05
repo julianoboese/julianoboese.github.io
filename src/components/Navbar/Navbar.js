@@ -1,20 +1,20 @@
 import React, { useContext, useState } from 'react';
 import { NavHashLink as NavLink } from 'react-router-hash-link';
 import Fade from 'react-reveal/Fade';
-import { IoMenuSharp, IoHomeSharp } from 'react-icons/io5';
-import { HiDocumentText } from 'react-icons/hi';
-import { BsFillGearFill } from 'react-icons/bs';
-import { MdPhone } from 'react-icons/md';
-import { FaUser, FaFolderOpen } from 'react-icons/fa';
-import { makeStyles } from '@material-ui/core/styles';
-import Drawer from '@material-ui/core/Drawer';
+import HomeIcon from '@mui/icons-material/Home';
+import PersonIcon from '@mui/icons-material/Person';
+import FolderOpenIcon from '@mui/icons-material/FolderOpen';
+import FeedIcon from '@mui/icons-material/Feed';
+import CallIcon from '@mui/icons-material/Call';
+import MenuIcon from '@mui/icons-material/Menu';
+
 import CloseIcon from '@mui/icons-material/Close';
 import SettingsIcon from '@mui/icons-material/Settings';
 
 import './Navbar.css';
 import {
   Box, Button, Dialog, DialogActions, DialogContent, DialogTitle, FormControl, InputLabel,
-  MenuItem, OutlinedInput, Select, ToggleButton, ToggleButtonGroup,
+  Drawer, MenuItem, OutlinedInput, Select, ToggleButton, ToggleButtonGroup,
 } from '@mui/material';
 import { headerData } from '../../data/headerData';
 import { themeData } from '../../data/themeData';
@@ -55,99 +55,6 @@ function Navbar() {
       setOptionsOpen(false);
     }
   };
-
-  const useStyles = makeStyles((t) => ({
-    navMenu: {
-      fontSize: '2.5rem',
-      color: theme.tertiary,
-      cursor: 'pointer',
-      transform: 'translateY(-10px)',
-      transition: 'color 0.3s',
-      '&:hover': {
-        color: theme.primary,
-      },
-      [t.breakpoints.down('sm')]: {
-        fontSize: '2.5rem',
-      },
-      [t.breakpoints.down('xs')]: {
-        fontSize: '2rem',
-      },
-    },
-    MuiDrawer: {
-      padding: '0em 1.8em',
-      width: '14em',
-      fontFamily: ' var(--primary-font)',
-      fontStyle: ' normal',
-      fontWeight: ' normal',
-      fontSize: ' 24px',
-      background: theme.secondary,
-      overflow: 'hidden',
-      borderTopLeftRadius: '40px',
-      borderBottomLeftRadius: '40px',
-      [t.breakpoints.down('sm')]: {
-        width: '12em',
-      },
-    },
-    closebtnIcon: {
-      fontSize: '2rem',
-      fontWeight: 'bold',
-      cursor: 'pointer',
-      color: theme.primary,
-      position: 'absolute',
-      right: 40,
-      top: 40,
-      transition: 'color 0.2s',
-      '&:hover': {
-        color: theme.tertiary,
-      },
-      [t.breakpoints.down('sm')]: {
-        right: 20,
-        top: 20,
-      },
-    },
-    drawerItem: {
-      margin: '2rem auto',
-      borderRadius: '78.8418px',
-      background: theme.secondary,
-      color: theme.primary,
-      width: '85%',
-      height: '60px',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'space-evenly',
-      padding: '0 30px',
-      boxSizing: 'border-box',
-      border: '2px solid',
-      borderColor: theme.primary,
-      transition: 'background-color 0.2s, color 0.2s',
-      '&:hover': {
-        background: theme.primary,
-        color: theme.secondary,
-      },
-      [t.breakpoints.down('sm')]: {
-        width: '100%',
-        padding: '0 25px',
-        height: '55px',
-      },
-    },
-    drawerLinks: {
-      fontFamily: 'var(--primary-font)',
-      width: '50%',
-      fontSize: '1.3rem',
-      fontWeight: 600,
-      [t.breakpoints.down('sm')]: {
-        fontSize: '1.125rem',
-      },
-    },
-    drawerIcon: {
-      fontSize: '1.6rem',
-      [t.breakpoints.down('sm')]: {
-        fontSize: '1.385rem',
-      },
-    },
-  }));
-
-  const classes = useStyles();
 
   const shortname = (longName) => {
     if (longName.length > 12) {
@@ -216,10 +123,19 @@ function Navbar() {
             </DialogActions>
           </Dialog>
         </div>
-        <IoMenuSharp
-          className={classes.navMenu}
+        <MenuIcon
           onClick={handleDrawerOpen}
           aria-label="Menu"
+          sx={{
+            fontSize: '2.5rem',
+            color: theme.tertiary,
+            cursor: 'pointer',
+            transform: 'translateY(-10px)',
+            transition: 'color 0.3s',
+            '&:hover': {
+              color: theme.primary,
+            },
+          }}
         />
       </div>
       <Drawer
@@ -233,7 +149,19 @@ function Navbar() {
         }}
         anchor="right"
         open={open}
-        classes={{ paper: classes.MuiDrawer }}
+        PaperProps={{ sx: { padding: '0em 1.8em',
+          width: {
+            xs: '12em',
+            sm: '14em',
+          },
+          fontFamily: ' var(--primary-font)',
+          fontStyle: ' normal',
+          fontWeight: ' normal',
+          fontSize: ' 24px',
+          background: theme.secondary,
+          overflow: 'hidden',
+          borderTopLeftRadius: '40px',
+          borderBottomLeftRadius: '40px' } }}
         className="drawer"
         disableScrollLock
       >
@@ -246,10 +174,28 @@ function Navbar() {
                 handleDrawerClose();
               }
             }}
-            className={classes.closebtnIcon}
             role="button"
             tabIndex="0"
             aria-label="Close"
+            sx={{
+              fontSize: '2rem',
+              fontWeight: 'bold',
+              cursor: 'pointer',
+              color: theme.primary,
+              position: 'absolute',
+              right: {
+                xs: 20,
+                sm: 40,
+              },
+              top: {
+                xs: 20,
+                sm: 40,
+              },
+              transition: 'color 0.2s',
+              '&:hover': {
+                color: theme.tertiary,
+              },
+            }}
           />
         </div>
         <br />
@@ -263,14 +209,48 @@ function Navbar() {
                 spy="true"
                 duration={2000}
               >
-                <div className={classes.drawerItem}>
-                  <IoHomeSharp
-                    className={classes.drawerIcon}
-                  />
-                  <span className={classes.drawerLinks}>
+                <Box
+                  sx={{
+                    margin: '2rem auto',
+                    borderRadius: '78.8418px',
+                    background: theme.secondary,
+                    color: theme.primary,
+                    width: {
+                      xs: '100%',
+                      sm: '85%',
+                    },
+                    height: {
+                      xs: '55px',
+                      sm: '60px',
+                    },
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'space-evenly',
+                    padding: {
+                      xs: '0 25px',
+                      sm: '0 30px',
+                    },
+                    boxSizing: 'border-box',
+                    border: '2px solid',
+                    borderColor: theme.primary,
+                    transition: 'background-color 0.2s, color 0.2s',
+                    '&:hover': {
+                      background: theme.primary,
+                      color: theme.secondary,
+                    },
+                  }}
+                >
+                  <HomeIcon sx={{ fontSize: { xs: '1.385rem', sm: '1.6rem' } }} />
+                  <span style={{
+                    fontFamily: 'var(--primary-font)',
+                    width: '50%',
+                    fontSize: { xs: '1.125', sm: '1.3rem' },
+                    fontWeight: 600,
+                  }}
+                  >
                     Home
                   </span>
-                </div>
+                </Box>
               </NavLink>
             </Fade>
 
@@ -281,12 +261,47 @@ function Navbar() {
                 spy="true"
                 duration={2000}
               >
-                <div className={classes.drawerItem}>
-                  <FaUser className={classes.drawerIcon} />
-                  <span className={classes.drawerLinks}>
+                <Box sx={{
+                  margin: '2rem auto',
+                  borderRadius: '78.8418px',
+                  background: theme.secondary,
+                  color: theme.primary,
+                  width: {
+                    xs: '100%',
+                    sm: '85%',
+                  },
+                  height: {
+                    xs: '55px',
+                    sm: '60px',
+                  },
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'space-evenly',
+                  padding: {
+                    xs: '0 25px',
+                    sm: '0 30px',
+                  },
+                  boxSizing: 'border-box',
+                  border: '2px solid',
+                  borderColor: theme.primary,
+                  transition: 'background-color 0.2s, color 0.2s',
+                  '&:hover': {
+                    background: theme.primary,
+                    color: theme.secondary,
+                  },
+                }}
+                >
+                  <PersonIcon sx={{ fontSize: { xs: '1.385rem', sm: '1.6rem' } }} />
+                  <span style={{
+                    fontFamily: 'var(--primary-font)',
+                    width: '50%',
+                    fontSize: { xs: '1.125', sm: '1.3rem' },
+                    fontWeight: 600,
+                  }}
+                  >
                     About
                   </span>
-                </div>
+                </Box>
               </NavLink>
             </Fade>
 
@@ -297,14 +312,47 @@ function Navbar() {
                 spy="true"
                 duration={2000}
               >
-                <div className={classes.drawerItem}>
-                  <BsFillGearFill
-                    className={classes.drawerIcon}
-                  />
-                  <span className={classes.drawerLinks}>
+                <Box sx={{
+                  margin: '2rem auto',
+                  borderRadius: '78.8418px',
+                  background: theme.secondary,
+                  color: theme.primary,
+                  width: {
+                    xs: '100%',
+                    sm: '85%',
+                  },
+                  height: {
+                    xs: '55px',
+                    sm: '60px',
+                  },
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'space-evenly',
+                  padding: {
+                    xs: '0 25px',
+                    sm: '0 30px',
+                  },
+                  boxSizing: 'border-box',
+                  border: '2px solid',
+                  borderColor: theme.primary,
+                  transition: 'background-color 0.2s, color 0.2s',
+                  '&:hover': {
+                    background: theme.primary,
+                    color: theme.secondary,
+                  },
+                }}
+                >
+                  <SettingsIcon sx={{ fontSize: { xs: '1.385rem', sm: '1.6rem' } }} />
+                  <span style={{
+                    fontFamily: 'var(--primary-font)',
+                    width: '50%',
+                    fontSize: { xs: '1.125', sm: '1.3rem' },
+                    fontWeight: 600,
+                  }}
+                  >
                     Skills
                   </span>
-                </div>
+                </Box>
               </NavLink>
             </Fade>
 
@@ -315,14 +363,47 @@ function Navbar() {
                 spy="true"
                 duration={2000}
               >
-                <div className={classes.drawerItem}>
-                  <FaFolderOpen
-                    className={classes.drawerIcon}
-                  />
-                  <span className={classes.drawerLinks}>
+                <Box sx={{
+                  margin: '2rem auto',
+                  borderRadius: '78.8418px',
+                  background: theme.secondary,
+                  color: theme.primary,
+                  width: {
+                    xs: '100%',
+                    sm: '85%',
+                  },
+                  height: {
+                    xs: '55px',
+                    sm: '60px',
+                  },
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'space-evenly',
+                  padding: {
+                    xs: '0 25px',
+                    sm: '0 30px',
+                  },
+                  boxSizing: 'border-box',
+                  border: '2px solid',
+                  borderColor: theme.primary,
+                  transition: 'background-color 0.2s, color 0.2s',
+                  '&:hover': {
+                    background: theme.primary,
+                    color: theme.secondary,
+                  },
+                }}
+                >
+                  <FolderOpenIcon sx={{ fontSize: { xs: '1.385rem', sm: '1.6rem' } }} />
+                  <span style={{
+                    fontFamily: 'var(--primary-font)',
+                    width: '50%',
+                    fontSize: { xs: '1.125', sm: '1.3rem' },
+                    fontWeight: 600,
+                  }}
+                  >
                     Projects
                   </span>
-                </div>
+                </Box>
               </NavLink>
             </Fade>
 
@@ -333,14 +414,47 @@ function Navbar() {
                 spy="true"
                 duration={2000}
               >
-                <div className={classes.drawerItem}>
-                  <HiDocumentText
-                    className={classes.drawerIcon}
-                  />
-                  <span className={classes.drawerLinks}>
+                <Box sx={{
+                  margin: '2rem auto',
+                  borderRadius: '78.8418px',
+                  background: theme.secondary,
+                  color: theme.primary,
+                  width: {
+                    xs: '100%',
+                    sm: '85%',
+                  },
+                  height: {
+                    xs: '55px',
+                    sm: '60px',
+                  },
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'space-evenly',
+                  padding: {
+                    xs: '0 25px',
+                    sm: '0 30px',
+                  },
+                  boxSizing: 'border-box',
+                  border: '2px solid',
+                  borderColor: theme.primary,
+                  transition: 'background-color 0.2s, color 0.2s',
+                  '&:hover': {
+                    background: theme.primary,
+                    color: theme.secondary,
+                  },
+                }}
+                >
+                  <FeedIcon sx={{ fontSize: { xs: '1.385rem', sm: '1.6rem' } }} />
+                  <span style={{
+                    fontFamily: 'var(--primary-font)',
+                    width: '50%',
+                    fontSize: { xs: '1.125', sm: '1.3rem' },
+                    fontWeight: 600,
+                  }}
+                  >
                     Resume
                   </span>
-                </div>
+                </Box>
               </NavLink>
             </Fade>
 
@@ -351,12 +465,47 @@ function Navbar() {
                 spy="true"
                 duration={2000}
               >
-                <div className={classes.drawerItem}>
-                  <MdPhone className={classes.drawerIcon} />
-                  <span className={classes.drawerLinks}>
+                <Box sx={{
+                  margin: '2rem auto',
+                  borderRadius: '78.8418px',
+                  background: theme.secondary,
+                  color: theme.primary,
+                  width: {
+                    xs: '100%',
+                    sm: '85%',
+                  },
+                  height: {
+                    xs: '55px',
+                    sm: '60px',
+                  },
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'space-evenly',
+                  padding: {
+                    xs: '0 25px',
+                    sm: '0 30px',
+                  },
+                  boxSizing: 'border-box',
+                  border: '2px solid',
+                  borderColor: theme.primary,
+                  transition: 'background-color 0.2s, color 0.2s',
+                  '&:hover': {
+                    background: theme.primary,
+                    color: theme.secondary,
+                  },
+                }}
+                >
+                  <CallIcon sx={{ fontSize: { xs: '1.385rem', sm: '1.6rem' } }} />
+                  <span style={{
+                    fontFamily: 'var(--primary-font)',
+                    width: '50%',
+                    fontSize: { xs: '1.125', sm: '1.3rem' },
+                    fontWeight: 600,
+                  }}
+                  >
                     Contact
                   </span>
-                </div>
+                </Box>
               </NavLink>
             </Fade>
           </div>
