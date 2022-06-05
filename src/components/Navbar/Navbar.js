@@ -9,6 +9,7 @@ import { FaUser, FaFolderOpen } from 'react-icons/fa';
 import { makeStyles } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import CloseIcon from '@material-ui/icons/Close';
+import SettingsIcon from '@material-ui/icons/Settings';
 
 import './Navbar.css';
 import {
@@ -159,10 +160,18 @@ function Navbar() {
         <h1 style={{ color: theme.secondary }}>
           {shortname(name)}
         </h1>
-        <div>
-          <Button onClick={handleClickOpen}>Open select dialog</Button>
+        <div style={{ alignSelf: 'flex-start' }}>
+          <Button
+            size="small"
+            variant="contained"
+            startIcon={<SettingsIcon />}
+            onClick={handleClickOpen}
+            sx={{ backgroundColor: theme.primary400, '&:hover': { backgroundColor: theme.primary80 } }}
+          >
+            Options
+          </Button>
           <Dialog disableEscapeKeyDown open={optionsOpen} onClose={handleClose}>
-            <DialogTitle>Settings</DialogTitle>
+            <DialogTitle>Options</DialogTitle>
             <DialogContent>
               <Box component="form" sx={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center' }}>
                 <ThemeToggler
@@ -201,7 +210,6 @@ function Navbar() {
               </Box>
             </DialogContent>
             <DialogActions>
-              <Button onClick={handleClose}>Cancel</Button>
               <Button onClick={handleClose}>Ok</Button>
             </DialogActions>
           </Dialog>
