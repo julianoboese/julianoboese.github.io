@@ -1,6 +1,4 @@
-import React, {
-  createContext, useMemo, useCallback, useState,
-} from 'react';
+import React, { createContext, useMemo, useCallback, useState } from 'react';
 
 export const LanguageContext = createContext();
 

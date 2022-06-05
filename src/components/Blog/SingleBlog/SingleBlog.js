@@ -4,9 +4,7 @@ import Fade from 'react-reveal/Fade';
 import placeholder from '../../../assets/png/placeholder.png';
 import './SingleBlog.css';
 
-function SingleBlog({
-  theme, title, desc, date, image, url, id,
-}) {
+function SingleBlog({ theme, title, desc, date, image, url, id }) {
   return (
     <Fade bottom>
       <a className="singleBlog" key={id} href={url} target="_blank" rel="noreferrer" style={{ backgroundColor: theme.primary400 }}>
