@@ -4,12 +4,14 @@ import Fade from 'react-reveal/Fade';
 import HomeIcon from '@mui/icons-material/Home';
 import PersonIcon from '@mui/icons-material/Person';
 import FolderOpenIcon from '@mui/icons-material/FolderOpen';
+import SettingsIcon from '@mui/icons-material/Settings';
 import FeedIcon from '@mui/icons-material/Feed';
 import CallIcon from '@mui/icons-material/Call';
 import MenuIcon from '@mui/icons-material/Menu';
+import ColorLensOutlinedIcon from '@mui/icons-material/ColorLensOutlined';
+import TranslateOutlinedIcon from '@mui/icons-material/TranslateOutlined';
 
 import CloseIcon from '@mui/icons-material/Close';
-import SettingsIcon from '@mui/icons-material/Settings';
 
 import './Navbar.css';
 import {
@@ -73,9 +75,10 @@ function Navbar() {
           <Button
             size="small"
             variant="contained"
-            startIcon={<SettingsIcon />}
+            startIcon={<TranslateOutlinedIcon />}
+            endIcon={<ColorLensOutlinedIcon />}
             onClick={handleClickOpen}
-            sx={{ backgroundColor: theme.primary400, '&:hover': { backgroundColor: theme.primary80 } }}
+            sx={{ color: theme.secondary, backgroundColor: theme.primary400, '&:hover': { backgroundColor: theme.primary80 } }}
           >
             Options
           </Button>
@@ -83,15 +86,11 @@ function Navbar() {
             <DialogTitle>Options</DialogTitle>
             <DialogContent>
               <Box component="form" sx={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center' }}>
-                <ThemeToggler
-                  sx={{ mx: 4, my: 1 }}
-                  checked={theme.type === 'dark'}
-                  onChange={selectThemeType}
-                />
                 <ToggleButtonGroup
                   value={language}
                   exclusive
                   onChange={toggleLanguage}
+                  sx={{ mx: 4 }}
                 >
                   <ToggleButton value="en" sx={{ padding: '3px', height: '100%' }}>
                     <img src="https://img.icons8.com/color/48/undefined/usa.png" alt="usa-flag" />
@@ -100,6 +99,11 @@ function Navbar() {
                     <img src="https://img.icons8.com/color/48/undefined/brazil.png" alt="brazil-flag" />
                   </ToggleButton>
                 </ToggleButtonGroup>
+                <ThemeToggler
+                  sx={{ my: 1 }}
+                  checked={theme.type === 'dark'}
+                  onChange={selectThemeType}
+                />
                 <FormControl sx={{ m: 3, minWidth: 120 }}>
                   <InputLabel id="theme-color-select">Theme Color</InputLabel>
                   <Select
