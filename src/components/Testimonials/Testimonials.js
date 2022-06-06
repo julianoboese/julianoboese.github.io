@@ -2,7 +2,9 @@ import React, { useContext, useRef } from 'react';
 
 import Slider from 'react-slick';
 
-import { FaQuoteLeft, FaArrowRight, FaArrowLeft } from 'react-icons/fa';
+import FormatQuoteRoundedIcon from '@mui/icons-material/FormatQuoteRounded';
+import ArrowBackRoundedIcon from '@mui/icons-material/ArrowBackRounded';
+import ArrowForwardRoundedIcon from '@mui/icons-material/ArrowForwardRounded';
 
 import { ThemeContext } from '../../contexts/ThemeContext';
 import { testimonialsData } from '../../data/testimonialsData';
@@ -49,9 +51,9 @@ function Testimonials() {
             <h1 style={{ color: theme.secondary }}>Testimonials</h1>
           </div>
           <div className="testimonials--body">
-            <FaQuoteLeft
+            <FormatQuoteRoundedIcon
               className="quote"
-              style={{ color: theme.secondary }}
+              sx={{ color: theme.secondary, fontSize: { xs: '3rem', md: '3.5rem', lg: '8rem' } }}
             />
             <div
               className="testimonials--slider"
@@ -98,8 +100,8 @@ function Testimonials() {
                 style={{ backgroundColor: theme.secondary }}
                 type="button"
               >
-                <FaArrowLeft
-                  style={{ color: theme.primary }}
+                <ArrowBackRoundedIcon
+                  style={{ color: theme.primary, fontSize: '2.5rem' }}
                   aria-label="Previous testimonial"
                 />
               </button>
@@ -109,8 +111,8 @@ function Testimonials() {
                 style={{ backgroundColor: theme.secondary }}
                 type="button"
               >
-                <FaArrowRight
-                  style={{ color: theme.primary }}
+                <ArrowForwardRoundedIcon
+                  style={{ color: theme.primary, fontSize: '2.5rem' }}
                   aria-label="Next testimonial"
                 />
               </button>

@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { IoIosArrowDropupCircle } from 'react-icons/io';
+import KeyboardArrowUpRoundedIcon from '@mui/icons-material/KeyboardArrowUpRounded';
 
 import { ThemeContext } from '../../contexts/ThemeContext';
 import './BackToTop.css';
@@ -33,7 +33,7 @@ function BackToTop() {
       className="backToTop"
     >
       <button onClick={scrollToTop} aria-label="Back to top" type="button">
-        <IoIosArrowDropupCircle style={{ fontSize: '3rem', color: theme.tertiary }} />
+        <KeyboardArrowUpRoundedIcon sx={{ fontSize: '3rem', color: theme.secondary, backgroundColor: theme.tertiary, borderRadius: '100%' }} />
       </button>
     </div>
   );

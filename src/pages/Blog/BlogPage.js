@@ -1,8 +1,9 @@
-import React, { useContext, useState } from 'react';
+/** @jsxImportSource @emotion/react */
+import { useContext, useState } from 'react';
+import { css } from '@emotion/react';
 import { Helmet } from 'react-helmet';
 import { Grid } from '@mui/material';
 import { Link } from 'react-router-dom';
-import { makeStyles } from '@material-ui/core/styles';
 import HomeIcon from '@mui/icons-material/Home';
 
 import './BlogPage.css';
@@ -25,31 +26,6 @@ function BlogPage() {
     return content.toLowerCase().includes(search.toLowerCase());
   });
 
-  const useStyles = makeStyles((t) => ({
-    search: {
-      color: theme.tertiary,
-      width: '40%',
-      height: '2.75rem',
-      outline: 'none',
-      border: 'none',
-      borderRadius: '20px',
-      padding: '0.95rem 1rem',
-      fontFamily: "'Noto Sans TC', sans-serif",
-      fontWeight: 500,
-      fontSize: '0.9rem',
-      backgroundColor: theme.secondary,
-      boxShadow: theme.type === 'dark' ? 'inset 3px 3px 6px #ffffff10, inset -3px -3px 6px #00000060' : 'inset 3px 3px 6px #ffffffbd, inset -3px -3px 6px #00000030',
-      '&::placeholder': {
-        color: theme.tertiary80,
-      },
-      [t.breakpoints.down('sm')]: {
-        width: '350px',
-      },
-    },
-  }));
-
-  const classes = useStyles();
-
   return (
     <div className="blogPage" style={{ backgroundColor: theme.secondary }}>
       <Helmet>
@@ -62,7 +38,6 @@ function BlogPage() {
       <div className="blogPage--header" style={{ backgroundColor: theme.primary }}>
         <Link to="/">
           <HomeIcon
-            className={classes.home}
             sx={{
               color: theme.secondary,
               position: 'absolute',
@@ -90,7 +65,32 @@ function BlogPage() {
       </div>
       <div className="blogPage--container">
         <div className="blog--search">
-          <input type="text" value={search} onChange={(e) => setSearch(e.target.value)} placeholder="Seach blog..." className={classes.search} />
+          <input
+            type="text"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+            placeholder="Seach blog..."
+            css={css`
+              color: ${theme.tertiary};
+              width: 350px;
+              @media (min-width: 420px) {
+                width: 40%;
+              };
+              height: 2.75rem;
+              outline: none;
+              border: none;
+              border-radius: 20px;
+              padding: 0.95rem 1rem;
+              font-family: 'Noto Sans TC', sans-serif;
+              font-weight: 500;
+              font-size: 0.9rem;
+              background-color: ${theme.secondary};
+              box-shadow: ${theme.type === 'dark' ? 'inset 3px 3px 6px #ffffff10, inset -3px -3px 6px #00000060' : 'inset 3px 3px 6px #ffffffbd, inset -3px -3px 6px #00000030'};
+              ::placeholder {
+                color: ${theme.tertiary80};
+              }
+            `}
+          />
         </div>
         <div className="blogs--container">
           <Grid className="blog-grid" container direction="row" alignItems="center" justifyContent="center">

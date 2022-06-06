@@ -45,7 +45,7 @@ function Landing() {
             >
               <GitHubIcon
                 className="landing--social"
-                sx={{ color: theme.secondary }}
+                sx={{ color: theme.secondary, fontSize: '35px' }}
                 aria-label="GitHub"
               />
             </a>
