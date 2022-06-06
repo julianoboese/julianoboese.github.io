@@ -1,6 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { IoIosArrowDropupCircle } from 'react-icons/io';
-import { makeStyles } from '@material-ui/core/styles';
+import KeyboardArrowUpRoundedIcon from '@mui/icons-material/KeyboardArrowUpRounded';
 
 import { ThemeContext } from '../../contexts/ThemeContext';
 import './BackToTop.css';
@@ -28,22 +27,13 @@ function BackToTop() {
 
   window.addEventListener('scroll', toggleVisible);
 
-  const useStyles = makeStyles(() => ({
-    icon: {
-      fontSize: '3rem',
-      color: theme.tertiary,
-    },
-  }));
-
-  const classes = useStyles();
-
   return (
     <div
       style={{ display: visible ? 'inline' : 'none' }}
       className="backToTop"
     >
       <button onClick={scrollToTop} aria-label="Back to top" type="button">
-        <IoIosArrowDropupCircle className={classes.icon} />
+        <KeyboardArrowUpRoundedIcon sx={{ fontSize: '3rem', color: theme.secondary, backgroundColor: theme.tertiary, borderRadius: '100%' }} />
       </button>
     </div>
   );

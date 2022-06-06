@@ -1,13 +1,10 @@
 import React, { useContext } from 'react';
-import { Button } from '@material-ui/core';
 import { NavHashLink as NavLink } from 'react-router-hash-link';
-import { makeStyles } from '@material-ui/core/styles';
+import { Button } from '@mui/material';
 
 import './Landing.css';
-import {
-  FaLinkedin,
-  FaGithub,
-} from 'react-icons/fa';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import GitHubIcon from '@mui/icons-material/GitHub';
 import { ThemeContext } from '../../contexts/ThemeContext';
 import { headerData } from '../../data/headerData';
 import { socialsData } from '../../data/socialsData';
@@ -17,57 +14,7 @@ function Landing() {
   const { theme } = useContext(ThemeContext);
   const { language } = useContext(LanguageContext);
 
-  const {
-    name, title, description, image, resumePdf,
-  } = headerData[language];
-
-  const useStyles = makeStyles((t) => ({
-    resumeBtn: {
-      color: theme.primary,
-      borderRadius: '30px',
-      textTransform: 'inherit',
-      textDecoration: 'none',
-      width: '150px',
-      fontSize: '1rem',
-      fontWeight: '500',
-      height: '50px',
-      fontFamily: 'var(--primary-font)',
-      border: `3px solid ${theme.primary}`,
-      transition: '100ms ease-out',
-      '&:hover': {
-        backgroundColor: theme.tertiary,
-        color: theme.secondary,
-        border: `3px solid ${theme.tertiary}`,
-      },
-      [t.breakpoints.down('sm')]: {
-        width: '180px',
-      },
-    },
-    contactBtn: {
-      backgroundColor: theme.primary,
-      color: theme.secondary,
-      borderRadius: '30px',
-      textTransform: 'inherit',
-      textDecoration: 'none',
-      width: '150px',
-      height: '50px',
-      fontSize: '1rem',
-      fontWeight: '500',
-      fontFamily: 'var(--primary-font)',
-      border: `3px solid ${theme.primary}`,
-      transition: '100ms ease-out',
-      '&:hover': {
-        backgroundColor: theme.secondary,
-        color: theme.tertiary,
-        border: `3px solid ${theme.tertiary}`,
-      },
-      [t.breakpoints.down('sm')]: {
-        width: '180px',
-      },
-    },
-  }));
-
-  const classes = useStyles();
+  const { name, title, description, image, resumePdf } = headerData[language];
 
   return (
     <div className="landing">
@@ -83,9 +30,9 @@ function Landing() {
               target="_blank"
               rel="noreferrer"
             >
-              <FaLinkedin
+              <LinkedInIcon
                 className="landing--social"
-                style={{ color: theme.secondary }}
+                sx={{ color: theme.secondary, fontSize: '35px' }}
                 aria-label="LinkedIn"
               />
             </a>
@@ -96,9 +43,9 @@ function Landing() {
               target="_blank"
               rel="noreferrer"
             >
-              <FaGithub
+              <GitHubIcon
                 className="landing--social"
-                style={{ color: theme.secondary }}
+                sx={{ color: theme.secondary, fontSize: '35px' }}
                 aria-label="GitHub"
               />
             </a>
@@ -133,7 +80,27 @@ function Landing() {
                   target="_blank"
                   rel="noreferrer"
                 >
-                  <Button className={classes.resumeBtn}>
+                  <Button
+                    sx={{ color: theme.primary,
+                      borderRadius: '30px',
+                      textTransform: 'inherit',
+                      textDecoration: 'none',
+                      width: {
+                        sm: '180px',
+                        md: '150px',
+                      },
+                      fontSize: '1rem',
+                      fontWeight: '500',
+                      height: '50px',
+                      fontFamily: 'var(--primary-font)',
+                      border: `3px solid ${theme.primary}`,
+                      transition: '100ms ease-out',
+                      '&:hover': {
+                        backgroundColor: theme.tertiary,
+                        color: theme.secondary,
+                        border: `3px solid ${theme.tertiary}`,
+                      } }}
+                  >
                     Download CV
                   </Button>
                 </a>
@@ -144,7 +111,28 @@ function Landing() {
                 spy="true"
                 duration={2000}
               >
-                <Button className={classes.contactBtn}>
+                <Button
+                  sx={{ backgroundColor: theme.primary,
+                    color: theme.secondary,
+                    borderRadius: '30px',
+                    textTransform: 'inherit',
+                    textDecoration: 'none',
+                    width: {
+                      sm: '180px',
+                      md: '150px',
+                    },
+                    height: '50px',
+                    fontSize: '1rem',
+                    fontWeight: '500',
+                    fontFamily: 'var(--primary-font)',
+                    border: `3px solid ${theme.primary}`,
+                    transition: '100ms ease-out',
+                    '&:hover': {
+                      backgroundColor: theme.secondary,
+                      color: theme.tertiary,
+                      border: `3px solid ${theme.tertiary}`,
+                    } }}
+                >
                   Contact
                 </Button>
               </NavLink>

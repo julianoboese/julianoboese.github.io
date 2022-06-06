@@ -39,6 +39,10 @@
   flex: 0.6;
 }
 
+.achievement-cards > div {
+  width: 100%;
+}
+
 .achievement-card {
   display: flex;
   flex-direction: row;

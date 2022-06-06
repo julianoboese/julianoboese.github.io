@@ -28,6 +28,10 @@
   margin-bottom: 2rem;
 }
 
+.education-description > div {
+  width: 100%;
+}
+
 .education-card {
   display: flex;
   flex-direction: row;

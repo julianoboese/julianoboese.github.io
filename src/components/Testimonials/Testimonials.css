@@ -50,10 +50,9 @@
 }
 
 .testimonials--body .quote {
-  font-size: 4rem;
+  font-size: 6rem;
   position: absolute;
   z-index: 10;
-  transform: translateY(50%);
   opacity: 0.5;
 }
 
@@ -171,7 +170,7 @@
   }
 
   .testimonials--body .quote {
-    font-size: 3.5rem;
+    font-size: 5rem;
   }
 
   .review--content {
@@ -232,7 +231,7 @@
   }
 
   .testimonials--body .quote {
-    font-size: 3rem;
+    font-size: 4rem;
   }
 
   .testimonials--slider {

@@ -1,6 +1,4 @@
-import React, {
-  createContext, useCallback, useEffect, useMemo, useState,
-} from 'react';
+import React, { createContext, useCallback, useEffect, useMemo, useState } from 'react';
 
 import { themeData } from '../data/themeData';
 

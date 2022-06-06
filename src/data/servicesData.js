@@ -1,77 +1,77 @@
 /* eslint-disable */
-import { BiShoppingBag, BiPencil } from "react-icons/bi";
-import { BsCodeSlash, BsClipboardData } from "react-icons/bs";
-import { AiOutlineMail, AiFillAudio } from "react-icons/ai";
-import { FaInternetExplorer,  FaChalkboardTeacher, FaCameraRetro, FaPinterest, FaVideo, FaTabletAlt, FaRegNewspaper } from "react-icons/fa";
-
- 
+import CreateOutlinedIcon from '@mui/icons-material/CreateOutlined';
+import EmailOutlinedIcon from '@mui/icons-material/EmailOutlined';
+import CodeOutlinedIcon from '@mui/icons-material/CodeOutlined';
+import PhotoCameraIcon from '@mui/icons-material/PhotoCamera';
+import VideocamIcon from '@mui/icons-material/Videocam';
+import TabletMacIcon from '@mui/icons-material/TabletMac';
+import ArticleIcon from '@mui/icons-material/Article';
+import ShoppingBagOutlinedIcon from '@mui/icons-material/ShoppingBagOutlined';
+import SchoolIcon from '@mui/icons-material/School';
+import PinterestIcon from '@mui/icons-material/Pinterest';
+import InsertChartIcon from '@mui/icons-material/InsertChart';
+import MicIcon from '@mui/icons-material/Mic';
 
 export const servicesData = [
     // {
     //     id: 1,
     //     title: 'Marketing',
-    //     icon: <BiShoppingBag/>
+    //     icon: <ShoppingBagOutlinedIcon/>
     // },
     {
         id: 2,
         title: 'Content Writing',
-        icon: <BiPencil /> 
+        icon: <CreateOutlinedIcon /> 
     },
     {
         id: 3,
         title: 'Email Marketing',
-        icon: <AiOutlineMail />
+        icon: <EmailOutlinedIcon />
     },
     // {
     //     id: 4,
-    //     title: 'Internet Research',
-    //     icon: <FaInternetExplorer />
-    // },
-    // {
-    //     id: 5,
     //     title: 'Tutoring',
-    //     icon: <FaChalkboardTeacher />
+    //     icon: <SchoolIcon />
     // },
-
+    {
+        id: 5,
+        title: 'Web Design',
+        icon: <CodeOutlinedIcon />
+    },
     {
         id: 6,
-        title: 'Web Design',
-        icon: <BsCodeSlash />
-    },
-    {
-        id: 7,
         title: 'Photography',
-        icon: <FaCameraRetro />
+        icon: <PhotoCameraIcon />
     },
     // {
-    //     id: 8,
+    //     id: 7,
     //     title: 'Pinterest Virtual Assistant',
-    //     icon: <FaPinterest />
+    //     icon: <PinterestIcon />
     // }, 
     {
-        id: 9,
+        id: 8,
         title: 'Video Editing',
-        icon: <FaVideo />
+        icon: <VideocamIcon />
     },
     // {
-    //     id: 10,
+    //     id: 9,
     //     title: 'Data Entry', 
-    //     icon: <BsClipboardData />
+    //     icon: <InsertChartIcon />
     // },
     {
-        id: 11,
+        id: 10,
         title: 'Ebook Writing',
-        icon: <FaTabletAlt />
+        icon: <TabletMacIcon />
     },
     // {
     //     id: 12,
     //     title: 'Audio Transcription',
-    //     icon: <AiFillAudio />
+    //     icon: <MicIcon />
     // },
     {
         id: 13,
         title: 'Blog Posting',
-        icon: <FaRegNewspaper />
+        icon: <ArticleIcon />
     },
 
 ]
