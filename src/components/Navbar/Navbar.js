@@ -114,7 +114,7 @@ function Navbar() {
                     sx={{ height: '40px', m: 1, minWidth: 150 }}
                   >
                     {Object.keys(themeData).map((color) => (
-                      <MenuItem value={color}>
+                      <MenuItem key={color} value={color}>
                         {color.charAt(0).toUpperCase() + color.slice(1)}
                       </MenuItem>
                     ))}
