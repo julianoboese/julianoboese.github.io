@@ -9,6 +9,8 @@ export const skillsData = [
   'Material UI',
   'Docker',
   'MySQL',
+  'Node JS',
+  'Sequelize',
 ];
 
 export default skillsData;

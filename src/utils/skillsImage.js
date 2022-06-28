@@ -75,6 +75,8 @@ import canva from '../assets/svg/skills/canva.svg';
 import jest from '../assets/svg/skills/jest.svg';
 import rtl from '../assets/svg/skills/rtl.svg';
 import redux from '../assets/svg/skills/redux.svg';
+import nodejs from '../assets/svg/skills/nodeJs.svg';
+import sequelize from '../assets/svg/skills/sequelize.svg';
 
 export const skillsImage = (skill) => {
   const skillID = skill.toLowerCase();
@@ -233,6 +235,10 @@ export const skillsImage = (skill) => {
       return rtl;
     case 'redux':
       return redux;
+    case 'node js':
+      return nodejs;
+    case 'sequelize':
+      return sequelize;
     default:
       return null;
   }
