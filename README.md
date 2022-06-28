@@ -1,12 +1,9 @@
 # Meu Portfólio <!-- no toc -->
-
 <div align="center">
   <img src="./portfolio-image.png" alt="" width="700px"/>
 </div>
 
-
-<br />
-
+<br /><br />
 
 ## Table of Contents :scroll: <!-- no toc -->
 - [Seções :bookmark:](#seções-bookmark)
@@ -37,12 +34,10 @@
 <div align="left">
   <img src="./options-image.png" alt="" width="300px"/>
 </div>
-<br /> <br />
 
-
+<br />
 
 # Bibliotecas Utilizadas :package:
-
 - @emotion/react
 - @emotion/styled
 - @mui/material
@@ -54,17 +49,14 @@
 - slick-carousel
 - validator
 
-
 <br />
 
 # APIs Utilizadas :world_map:
 - [SheetDB](https://sheetdb.io/)
 
-
 <br />
 
 # Fontes e Imagens :performing_arts:
-
 ## Ilustrações
 - [Icons8](https://icons8.com/illustrations/styles)
 - [SVG Porn](https://svgporn.com/)
@@ -81,11 +73,9 @@
 - [Bestermind](https://www.dafont.com/bestermind.font)
 - [Roboto](https://fonts.google.com/specimen/Roboto)
 
-
 <br />
 
 # Contributors :man_technologist::woman_technologist:
-
 <div>
     <table>
         <tr>
