@@ -1,6 +1,6 @@
 import one from '../assets/png/projects/recipes-app.png';
 import two from '../assets/png/projects/trivia.png';
-import three from '../assets/png/projects/tryunfo.png';
+import three from '../assets/png/projects/blogs-api.png';
 
 export const projectsData = [
   {
@@ -23,11 +23,11 @@ export const projectsData = [
   },
   {
     id: 3,
-    projectName: 'Pokétrunfo',
-    projectDesc: 'App where you can create a deck of Pokémon and play Super Trunfo (Ace Trumps).',
-    tags: ['React', 'CSS'],
-    code: 'https://github.com/julianoboese/tryunfo',
-    demo: 'https://julianoboese.github.io/tryunfo/',
+      projectName: 'BlogsAPI',
+      projectDesc: 'RESTful API for an app that creates content for a Blog.',
+      tags: ['Node.js', 'Sequelize', 'PostgreSQL'],
+      code: 'https://github.com/julianoboese/blogs-api',
+      demo: 'https://blogs-api-julianoboese.herokuapp.com/',
     image: three,
   },
 ];
