@@ -8,20 +8,24 @@ import { projectsData } from '../../data/projectsData';
 
 import './Projects.css';
 import SingleProject from './SingleProject/SingleProject';
+import { LanguageContext } from '../../contexts/LanguageContext';
 
 function Projects() {
   const { theme } = useContext(ThemeContext);
+  const { language } = useContext(LanguageContext);
+
+  const projects = projectsData[language];
 
   return (
     <>
-      {projectsData.length > 0 && (
+      {projects.length > 0 && (
         <div className="projects" id="projects" style={{ backgroundColor: theme.secondary }}>
           <div className="projects--header">
             <h1 style={{ color: theme.primary }}>Projects</h1>
           </div>
           <div className="projects--body">
             <div className="projects--bodyContainer">
-              {projectsData.slice(0, 3).map((project) => (
+              {projects.slice(0, 3).map((project) => (
                 <SingleProject
                   theme={theme}
                   key={project.id}
@@ -36,7 +40,7 @@ function Projects() {
               ))}
             </div>
 
-            {projectsData.length > 3 && (
+            {projects.length > 3 && (
             <div className="projects--viewAll">
               <Link to="/projects">
                 <Button
