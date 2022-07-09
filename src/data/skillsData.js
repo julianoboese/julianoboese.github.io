@@ -11,6 +11,7 @@ export const skillsData = [
   'MySQL',
   'Node JS',
   'Sequelize',
+  'Typescript',
 ];
 
 export default skillsData;
